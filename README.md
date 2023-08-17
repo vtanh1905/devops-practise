@@ -1,4 +1,5 @@
 # Devops AWS Jenkins-CI Argo-CD
 
 ## Architecture
-![image](https://github.com/vtanh1905/devops-aws-jenkins-ci-argo-cd/assets/49771724/751d95b9-46f4-4063-9d6a-df1eb5fb7f15)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/c46b47a7-c30e-45f6-859e-6faa35ff3887)
+
