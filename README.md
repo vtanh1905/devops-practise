@@ -1,4 +1,5 @@
 # Devops Azure Pipelines
 
 ## Architecture
-![image](https://github.com/vtanh1905/devops-azure-pipelines/assets/49771724/99acc346-7cd0-44ae-8807-ca60d74ffd51)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/ed53eb39-6481-464d-8558-a16a3e647854)
+
