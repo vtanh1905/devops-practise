@@ -1,5 +1,3 @@
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/20613441-29f4-4d1a-80c5-2a47642b19c7)# AWS Jenkins-CI/CD
-
 ## Architecture
 ![image](https://github.com/vtanh1905/devops-practise/assets/49771724/7791c522-6f85-4a70-9a07-e736b1919248)
 
