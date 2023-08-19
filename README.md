@@ -8,7 +8,7 @@ We will setup the same steps in this exercise (AWS Jenkins-CI-CD) https://github
 
 However, we ignore the **3.6** step and **3.9** step.
 
-We will replace that with ArgoCD setup
+We will replace that with **Setup ArgoCD**
 
 ### Setup ArgoCD
 #### 1) Install ArgoCD
