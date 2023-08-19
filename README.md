@@ -4,8 +4,10 @@
 ![image](https://github.com/vtanh1905/devops-practise/assets/49771724/c46b47a7-c30e-45f6-859e-6faa35ff3887)
 
 ## How to setup the architechture step by step
-We will setup the same steps in this exercise (AWS Jenkins-CI-CD) https://github.com/vtanh1905/devops-practise/tree/aws-jenkins-cicd
-
+We will setup the same steps in this exercise (AWS Jenkins-CI-CD)
+```
+https://github.com/vtanh1905/devops-practise/tree/aws-jenkins-cicd
+```
 However, we ignore the **3.6** step and **3.9** step.
 
 We will replace that with **Setup ArgoCD**
