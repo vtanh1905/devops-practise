@@ -24,7 +24,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ```
 kubectl port-forward svc/argocd-server 8080:443 -n argocd
 ```
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/603a51d1-8e5a-43c9-8626-ba2837dd1bb8)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/7785edf2-1ae8-46d7-b81f-7c00f9a11e71)
 
 #### 3) Get account to login
 The username is **admin** (default)
@@ -32,46 +32,56 @@ We need to get password. Run the below scripts
 ```
 kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
 ```
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/0d183029-fdef-490f-b82e-6f5020fa832a)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/3deee86d-3a15-4ec8-85c0-935e7a5d88d5)
 
 Decode password in the file
 ```
 echo  <data.password>| base64 --decode
 ```
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/91d19e9d-9d6d-4cad-ac69-f1845e39f417)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/ded02fa6-bda7-4a06-9a04-43f71e5cbc11)
+
 In my computer, my password is u6RtG2aoncVTOPLb
+
 Finally, we are able to login
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/76b2a6c6-b45b-426e-ab54-6c761543163b)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/7def6017-3933-4707-bd85-07569469f495)
+
 
 #### 4) Create Project
 After we logged, Access **Setting** on menu and then choose **Projects**
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/4f37c8b1-2c70-41ba-8605-fc7850f96427)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/604e9fd3-bd66-4cf7-b645-461b336613c5)
+
 
 And then **NEW PROJECT**
 
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/6fa1774c-360d-4dec-8eea-188bdd44dfb0)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/67c169d0-fe49-4f16-ac1f-dcae547b6246)
 
 Create the Project the same below
 
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/d6ff2b3a-fc8c-4e58-b0fb-621d645e1413)
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/6d4efaea-533e-4add-9506-f0cc66a2f69e)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/c48365a9-a4e7-4d29-a845-9020c194c6ce)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/d3c39e62-514e-4db6-863a-1c8bae3e7912)
 
 #### 5) Create Application
 Choose **Applications** on menu, click **NEW APP**
 
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/adafaa2f-27c2-425f-a3e0-1c3e36fd8ef9)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/8571d58d-fb42-4edc-8cba-b3c8a6ee56b8)
 
 We choose the Project name that we have just created at the first step
 
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/d1d4a762-0319-4557-a8e4-ce7937b2485d)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/1ce1b80c-e4b7-4805-80ed-71198a6ae432)
 
 Then click **Create** Button and we got it
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/b6ec1dde-09f3-4180-8b5f-fb8abd788700)
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/77bfb982-1cad-4a07-8f4a-cbf7dda713f5)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/1340322d-59db-4979-ab2c-643197ed764d)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/3748096b-7804-482c-9407-b1d61ef007ba)
 
 #### 6) Deployment
 Click **Sync** button and we got it
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/0acfe722-0705-43b8-bb55-231b6f1c4f3a)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/b81ea974-e1c4-4424-860c-f3dce42c07dd)
 
 
 ## References
