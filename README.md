@@ -175,14 +175,17 @@ kubectl create namespace monitoring
 helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring
 ```
 After that, we got it
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/f419326a-71ff-428b-aad9-522b3d6216a8)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/2c6fb2f1-3789-40c2-95bd-89e134b1937b)
 
 Third, we can forward port to access 
 ```
 kubectl port-forward prometheus-prometheus-kube-prometheus-prometheus-0 9090 -n monitoring
 ```
 And then access this link: http://localhost:9090
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/2170654d-6231-41f4-ac92-57cbe81493ec)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/537d135c-7c98-4748-82c4-18c943547585)
+
 
 ### 5) Setup Grafana
 First, install Grafana
@@ -190,13 +193,15 @@ First, install Grafana
 helm install grafana grafana/grafana --namespace monitoring
 ```
 After that, we got it
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/9dd894b5-1cf0-4dab-83ab-24b3a3724fc3)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/20b27e67-535a-451e-96e4-68b8e7dc4ae6)
 
 Second, we can forward port to access
 ```
 kubectl port-forward svc/grafana 3000:80 -n monitoring
 ```
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/bb0899a1-63af-4bcf-b925-4130c54c0370)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/5946636e-05ab-46ae-b5ad-f8ff48ceb904)
 
 Third, need account to login
 Default username is **admin**
@@ -205,7 +210,8 @@ And run this script to get password
 kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
 Finally, we logged the Grafana
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/699f32ba-dd30-4fd2-b4f2-3759eb4974ed)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/0ab0ec67-76d4-413d-b54b-ea9c8091d559)
 
 ## References
 https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/
