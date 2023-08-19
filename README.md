@@ -8,7 +8,8 @@
 + Deploy: https://github.com/vtanh1905/devops-practise-deploy-source
 
 ### 1) Get AWS Credentials
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/ba0dd8c9-8328-44e3-b48e-0b2332aff238)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/e70ed81a-18fa-4adb-ac28-50eac3275bce)
+
 Access "IAM" on "AWS Console" to get **access_key** and **secret_key**
 
 ### 2) Setup AWS Infrastructure by Terraform
@@ -19,18 +20,17 @@ terraform apply
 ```
 And then enter the **access_key** and **secret_key** which we got the above.
 
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/95d1c76e-95cc-4e1e-ad72-cbf244f6b8ea)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/dcb776c9-b265-4a88-9496-5ab91697d273)
 
 **Note**: We should take a rest or prepare the coffee because it takes 20-25 minutes
 Finally, we got it.
 
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/afec1e72-3919-4b97-bb8b-08199cab54da)
-
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/8059df26-a808-4e2a-a2db-4ed599f82075)
 
 ### 3) Setup Jenkins
 Access the jenkin_url which we got above after we ran the script
 
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/ae878373-79a2-4186-a3c9-870868316a0c)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/a99b8ad9-428d-4287-8d1a-a656ea27a29e)
 
 #### 3.1) How to get password
 SSH into the ec2 which we got it after running the terraform.
@@ -43,15 +43,16 @@ And then, run this script in the terminal of ec2
 ```
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/ed7444ff-ea90-46c0-88f6-f8b12031bcec)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/0d6d8184-cec0-4470-93e2-21c52ce0272a)
+
 In my ec2,the password is 6fe3c31d62d6411ab526b8f69918fa2d 
 
 #### 3.2) Getting Started with Jenkins
 After we logged the Jenkins, choose **Install suuggested plugins**
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/9419e9bc-fe7c-43b7-9a89-5f0d8660ad30)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/149d3463-8090-4137-b79b-2ed403a8a2aa)
 
 After that, we fullfill the form 
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/5da61e13-44f2-40b0-8a4c-458c6c857337)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/3aac4e8f-b5d9-495b-a75d-a9f0d5d3390f)
 
 Finllay, click **Save and Continue** and next click **Save and Finish**
 
@@ -59,21 +60,26 @@ Finllay, click **Save and Continue** and next click **Save and Finish**
 Why we have to setup this, because we update new code in our source. The Jenkin run automatically CI.
 
 First, go to **Github Page** and Login your personal account -> Go to **Setting** -> Choose **Developer Settings** -> **Token (classic)** -> **Generate new token (classic)** ->  Generate token with **admin:org_hook** permission
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/a9e76089-59b4-4bc7-910b-14af6e068660)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/8f636c9c-683d-4c3e-91eb-3fd71f580ec1)
 
 Second, go to the **our source** on Github -> **Setting** -> **Webhook** -> **Add webhook**
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/3a24bd67-2d04-4207-a0b4-923e82f62d48)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/dc7875d1-ec16-40c0-a342-ac88ae22796b)
 
 + **Payload URL**: **${Jenkin_URL}**/github-webhook/
 
 Third, go to **Dashboard** Page -> Click **Manage Jenkins** -> Choose **System** -> Move to **Github** Section
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/cd89c3eb-918f-432c-abcf-7a2f16d2a397)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/420ba02f-0f15-48ac-b5b7-78ab91dcb843)
 
 Then, Add **Credentials** (note: Secret is the webhook token which is generated above)
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/a7be6d39-579f-4ad2-9db9-9d5589b229e4)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/044160ad-8c88-48bb-9657-fb738e84e857)
 
 Finally, press **Save** button
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/357a6c23-fd46-450c-99ee-c9da28c77009)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/ca54a9ae-37d1-4cf3-bf71-f6d469f33958)
 
 #### 3.4) Install Plugins for Jenkin
 Go to **Manage Jenkins** -> **Plugins** -> **Available plugins**
@@ -87,27 +93,31 @@ Install the below plugins
 #### 3.5) Create CI on Jenkin
 First, at **Dashboar** Page -> Choose **New Item** on Menu -> Fill the name -> Choose **Organization Folder** ->  **OK**
 
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/ea9d997f-7bfe-408d-8cbf-aa6c58cb3b53)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/a55e448a-21b9-4b91-89ab-55d3c2ce7289)
 
 Second, in **Projects** Section, we will add 3 repositories (frontend, backend, deploy)
 
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/b4dbeed8-1b86-4d36-8180-9bc9f2bb2ae4)
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/3e9d0579-9a21-4736-9a4f-c0dcea745172)
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/b3f5f85a-f005-4524-940d-5b8102720e89)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/77d81be0-f701-44bf-9b5e-7e76f3202f6a)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/f5ec4945-a17d-4dac-ae43-d1b571f0a2c0)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/d4cf1197-42eb-4816-a8ce-43f1ad6075e5)
 
 Third, add **Credential** to autherization (Username and Password Github)
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/fc0e5670-2bf1-470a-9f36-6bbe222a3adb)
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/3d01a397-b711-4cd3-b5f4-cf35dc678808)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/b8e79663-9d08-4baa-8487-be7a51e3eb18)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/94e93a5e-5b36-4706-90cc-808764d28c49)
 
 Finally, we see the same below
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/27fa493c-0197-456e-8c19-dca739ca052d)
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/2522153e-c855-43d5-b95e-1962ae47d199)
 
 #### 3.6) Config ECR and EKS on Jenkin
 At **Dashboard** page -> Choose **Manage Jenkins** on Menu -> Click **Credentitals** -> Add **Credentials**
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/c9494751-246b-4877-8860-a019cc858c68)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/91d000c0-ba88-4260-824b-07360ae6653d)
 
 First, add **AWS Credentitals**
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/44a0761d-ebee-48b7-b833-11fa1741e97e)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/2f0973de-4dc7-446a-a30f-07cfef96aeb5)
 
 Second, config EKS config for Kubectl
 + SSH into EC2 Jenkin
@@ -123,20 +133,30 @@ sudo chown -R jenkins: ~jenkins/.kube/
 
 #### 3.7) Add Global Environment Variable On Jenkin
 At **Dashboard** page -> Move to **Manage Jenkins** -> Click **System** -> Scroll down to **Global properties**
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/34dbbe39-d5dc-4d1f-a366-3f099e9c7298)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/dfd778de-2af9-4584-808a-a4b9ac225714)
 
 Add 5 Variable Environment (**AWS_ACCESS_KEY_ID**, **AWS_SECRET_ACCESS_KEY**, **ECR_CREDENTIALS**, **ECR_URL**, **EKS_SERVER_URL**) like the same above
 
 #### 3.8) Modify Image tag and Environment in Deploy Source
 Modify **deployment.yaml** in deploy source
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/db574bac-c8bf-4289-b43d-73793fdf48cd)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/ecc319fd-b45e-453b-92ee-96e24b3e59bb)
+
 
 #### 3.9) Trigger the pipeline again
 We will got the resut the same below
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/dbe1c8df-b31b-4be5-b8c5-6d3d4db7d00d)
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/b900b2ef-e310-49af-8b0e-2cf598b284fa)
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/3872466f-8560-4ef8-aa72-5f267bb5e26c)
-![image](https://github.com/vtanh1905/devops-practise/assets/49771724/1d1ac0b9-d35d-43a1-8e02-876c4f88ad2e)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/44e066eb-0a6c-49a8-a653-42e8c2b22f26)
+
+And then we commit and push to github. And we got it
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/5e9ae5f0-a91d-4a6e-a8e2-d464ae9ecd6e)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/c9aea432-97aa-44e5-9800-49f5d7fb9848)
+
+![image](https://github.com/vtanh1905/devops-practise/assets/49771724/c529d15e-4d33-4d59-a856-827d4d9395a3)
+
 
 
 ### 4) Setup Prometheus
